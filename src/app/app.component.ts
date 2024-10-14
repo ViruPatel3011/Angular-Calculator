@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
 import type {
@@ -17,7 +17,7 @@ export class AppComponent {
   // Why we use one single parameter as data --> We don't need to remember the order of parameters then. If we use seperate parameters
   // then we must need to take care of order of arguments and parameters provided
 
-  resultsData?: InvestmentOutputData[];
+  resultsData = signal<InvestmentOutputData[] | undefined>(undefined);
 
   onCalculateInvestmentResults(data: InvestmentInput) {
     const { annualInvestment, duration, expectedReturn, initialInvestment } =
@@ -42,7 +42,7 @@ export class AppComponent {
       });
     }
 
-    this.resultsData = annualData;
+    this.resultsData.set(annualData);
     console.log('annualData:', annualData);
   }
 }

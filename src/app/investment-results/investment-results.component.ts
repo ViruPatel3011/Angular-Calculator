@@ -9,25 +9,25 @@ import { Component, Input, input } from '@angular/core';
   styleUrl: './investment-results.component.css',
 })
 export class InvestmentResultsComponent {
-  // results = input<{
-  //   year: number;
-  //   interest: number;
-  //   valueEndOfYear: number;
-  //   annualInvestment: number;
-  //   totalInterest: number;
-  //   totalAmountInvested: number;
-  // }>();
-
-
-  // here use of "?" tells angular that it is an optional property which might have value or might be undefined
-  // here use of "!" tells angular that this will always be a value of this shape
-
-  @Input() results?: {
+  results = input<{
     year: number;
     interest: number;
     valueEndOfYear: number;
     annualInvestment: number;
     totalInterest: number;
     totalAmountInvested: number;
-  }[];
+  }[]>();
+
+
+  // here use of "?" tells angular that it is an optional property which might have value or might be undefined
+  // here use of "!" tells angular that this will always be a value of this shape
+
+  // @Input() results?: {
+  //   year: number;
+  //   interest: number;
+  //   valueEndOfYear: number;
+  //   annualInvestment: number;
+  //   totalInterest: number;
+  //   totalAmountInvested: number;
+  // }[];
 }
